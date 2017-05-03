@@ -87,9 +87,9 @@ def planner(ts, init_pose, act, robot_task, robot_name='TIAGo'):
     #----------
     InitialPosePublisher = rospy.Publisher('initialpose', PoseWithCovarianceStamped, queue_size = 100)
     for i in xrange(10):
-        SendInitialPose(InitialPosePublisher, INITIAL, rospy.Time.now())
+        SendInitialPose(InitialPosePublisher, init_pose, rospy.Time.now())
         rospy.sleep(0.1)
-    print('Initial pose set to %s.' %INITIAL)
+    print('Initial pose set to %s.' %str(init_pose))
     GoalPublisher = rospy.Publisher('move_base_simple/goal', PoseStamped, queue_size = 100)
     #----------
     #subscribe to
@@ -97,18 +97,19 @@ def planner(ts, init_pose, act, robot_task, robot_name='TIAGo'):
     rospy.Subscriber('amcl_pose', PoseWithCovarianceStamped, PoseCallback)
     ####### robot information
     full_model = MotActModel(ts, act)
-    planner = ltl_planner(full_model, task, None)
+    planner = ltl_planner(full_model, robot_task, None)
     ####### initial plan synthesis
     planner.optimal(10)
     #######
     reach_xy_bound = 0.5 # m
     reach_yaw_bound = 0.2*PI # rad
+    t0 = rospy.Time.now()
     while not rospy.is_shutdown():
         try:
             t = rospy.Time.now()-t0
             print '----------Time: %.2f----------' %t.to_sec()
             current_goal = planner.next_move
-            if isinstance(next_move, str):
+            if isinstance(current_goal, str):
                 print 'the robot next_move is an action, currently not implemented for %s' %robot_name
                 break
             if ((norm2(robot_pose[1][0:2], current_goal[0:2]) > reach_xy_bound) or (abs(robot_pose[1][2])-current_goal[2]) > reach_yaw_bound):
@@ -127,8 +128,8 @@ if __name__ == '__main__':
     ########
     if len(sys.argv) == 2:
         robot_task = str(sys.argv[1])
-        # to run: python planner_robot.py '<> (r2 && <>r3)'
-        # to run: python planner_robot.py '([]<> r2) && ([]<> r3) && ([]<> r1)'        
+        # to run: python ltl_planner.py '<> (r2 && <>r3)'
+        # to run: python ltl_planner.py '([]<> r2) && ([]<> r3) && ([]<> r1)'        
     ###############
     try:
         [robot_motion, init_pose, robot_action] = robot_model
