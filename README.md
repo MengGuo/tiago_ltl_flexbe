@@ -36,3 +36,5 @@ python ltl_planner.py '<> r2 && ([]<> r3) && ([]<> r1)'
   <img src="https://github.com/MengGuo/tiago_ltl_flexbe/blob/master/src/figures/tiago_ltl_flexbe.png" width="800"/>
   </p>
 
+- Simulation [video](https://vimeo.com/215800825) for different LTL tasks. 
+
