@@ -20,18 +20,19 @@ This package is based on the following three sources:
 robot_model = [robot_motion, init_pose, robot_action]
 
 ```
-  where the robot motion and action abstractions are given as [FTS models](https://github.com/MengGuo/tiago_ltl_flexbe/blob/master/src/ltl_tools/ts.py). 
+
+   where the robot motion and action abstractions are given as [FTS models](https://github.com/MengGuo/tiago_ltl_flexbe/blob/master/src/ltl_tools/ts.py). 
 
 
 - While calling the [ltl_planner.py](https://github.com/MengGuo/tiago_ltl_flexbe/blob/master/src/ltl_planner.py), a complex navigation task specified as LTL formulas can be fed directly:
 
 ```python
-        # python ltl_planner.py '<> (r2 && <>r3)'
-        # python ltl_planner.py '([]<> r2) && ([]<> r3) && ([]<> r1)'
-		# python ltl_planner.py '<> r2 && ([]<> r3) && ([]<> r1)'
+# python ltl_planner.py '<> (r2 && <>r3)'
+# python ltl_planner.py '([]<> r2) && ([]<> r3) && ([]<> r1)'
+python ltl_planner.py '<> r2 && ([]<> r3) && ([]<> r1)'
 ```
 
   <p align="center">  
-  <img src="https://github.com/MengGuo/Jackal_Velodyne_Duke/blob/master/navigation/figures/odom_navg.png" width="800"/>
+  <img src="https://github.com/MengGuo/tiago_ltl_flexbe/blob/master/src/figures/tiago_ltl_flexbe.png" width="800"/>
   </p>
 
