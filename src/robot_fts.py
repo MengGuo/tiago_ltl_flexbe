@@ -25,11 +25,17 @@ robot_motion.add_full_edges(unit_cost = 0.1)
 ##############################
 # action FTS
 ############# no action model
-action = dict()
+# action = dict()
 ############# with action
+# for supported actions in play_motion
+# see http://wiki.ros.org/Robots/TIAGo/Tutorials/motions/play_motion
+
 # action = { 'pick': (100, 'r', set(['pick'])),
-#            'drop': (50, 'b', set(['drop']))
+#            'drop': (50, '1', set(['drop']))
 # }
+
+action = {'pick_from_floor': (10, '1', set(['pick_from_floor',])),
+          'reach_max': (10, '1', set(['reach_max',]))}
 
 
 robot_action = ActionModel(action)
