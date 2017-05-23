@@ -38,5 +38,5 @@ python ltl_planner.py '<> r2 && ([]<> r3) && ([]<> r1)'
 
 - Simulation [video](https://vimeo.com/215800825) for different LTL tasks (with only navigation tasks)
 
-- Incorporating TIAGo pre-programmed actions from [\[play_motion\]](http://wiki.ros.org/Robots/TIAGo/Tutorials/motions/play_motion)
+- Incorporating TIAGo pre-programmed actions from [\[play_motion\]](http://wiki.ros.org/Robots/TIAGo/Tutorials/motions/play_motion). Thus a task involves 
 
