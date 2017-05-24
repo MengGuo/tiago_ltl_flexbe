@@ -57,5 +57,5 @@ unfold_arm
 wave
 ```
 
-Thus a task can involve any regions of interest in the workspace and any play_motion above, see [video](https://vimeo.com/218766393).
+Thus a task can involve any regions of interest in the workspace and any [play_motion] action above, see [video](https://vimeo.com/218766393).
 
