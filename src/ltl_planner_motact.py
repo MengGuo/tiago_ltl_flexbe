@@ -127,6 +127,9 @@ def planner(ts, init_pose, act, robot_task, robot_name='TIAGo'):
                 state = client.get_state()
                 if state >= 1:
                     print 'Successful execution of action %s' %next_move
+                    planner.find_next_move()
+                else:
+                    print 'Failed execution of action %s. Will retry' %next_move
             else:
                 print 'Robot %s next move is motion to %s' %(str(robot_name), str(next_move))
                 if ((norm2(robot_pose[1][0:2], next_move[0:2]) > reach_xy_bound) or (abs(robot_pose[1][2])-next_move[2]) > reach_yaw_bound):
