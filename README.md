@@ -57,5 +57,11 @@ unfold_arm
 wave
 ```
 
-Thus a task can involve any regions of interest in the workspace and any [play_motion] action above, see [video](https://vimeo.com/218766393).
+Thus a task can involve any regions of interest in the workspace and any [play_motion] action above,
+```python
+# python ltl_planner.py '([]<> (r2 && shake_hands)) && ([]<> (r3 && head_tour))'
+python ltl_planner.py '<> ((r2 && pick_from_floor) && <> (r3 && reach_max))
+```
+
+see [video](https://vimeo.com/218766393) for example.
 
