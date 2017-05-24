@@ -38,5 +38,24 @@ python ltl_planner.py '<> r2 && ([]<> r3) && ([]<> r1)'
 
 - Simulation [video](https://vimeo.com/215800825) for different LTL tasks (with only navigation tasks)
 
-- Incorporating TIAGo pre-programmed actions from [\[play_motion\]](http://wiki.ros.org/Robots/TIAGo/Tutorials/motions/play_motion). Thus a task involves 
+- Incorporating TIAGo pre-programmed actions from [\[play_motion\]](http://wiki.ros.org/Robots/TIAGo/Tutorials/motions/play_motion), such as
+```
+close_gripper
+close_gripper_half
+do_weights
+head_tour
+home
+offer_gripper
+open_gripper
+pick_from_floor
+pregrasp_weight
+reach_floor
+reach_max
+shake_hands
+show_manip_ws
+unfold_arm
+wave
+```
+
+Thus a task can involve any regions of interest in the workspace and any play_motion above, see [video](https://vimeo.com/218766393).
 
